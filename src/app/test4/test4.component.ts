@@ -14,19 +14,19 @@ import {
 import { Log } from 'ng2-logger';
 
 @Component({
-  selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
+  selector: 'app-test4',
+  templateUrl: './test4.component.html',
+  styleUrls: ['./test4.component.css'],
 })
-export class TestComponent implements OnInit, OnDestroy, DoCheck, OnChanges, AfterViewInit,
+export class Test4Component implements OnInit, OnDestroy, DoCheck, OnChanges, AfterViewInit,
   AfterViewChecked, AfterContentInit, AfterContentChecked {
   @Input() testData;
   @Input() notModified;
 
-  logger = Log.create('Test');
+  logger = Log.create('Test4');
 
   constructor() {
-    this.logger.color = 'black';
+    this.logger.color = 'green';
     this.logger.data('constructor');
   }
 

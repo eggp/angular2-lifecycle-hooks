@@ -11,6 +11,7 @@ import {
   OnInit,
   SimpleChanges
 } from '@angular/core';
+import { Log } from 'ng2-logger';
 
 @Component({
   selector: 'app-test2',
@@ -19,43 +20,45 @@ import {
 })
 export class Test2Component implements OnInit, OnDestroy, DoCheck, OnChanges, AfterViewInit,
   AfterViewChecked, AfterContentInit, AfterContentChecked {
-  componentName = 'Test2';
   @Input() testData;
   @Input() notModified;
 
+  logger = Log.create('Test2');
+
   constructor() {
-    console.log(`${this.componentName} constructor, testData: `, this.testData);
+    this.logger.color = 'silver';
+    this.logger.data('constructor');
   }
 
   ngAfterContentInit(): void {
-    console.log(`${this.componentName} afterContentInit`);
+    this.logger.data('afterContentInit');
   }
 
   ngAfterContentChecked(): void {
-    console.log(`${this.componentName} afterContentChecked`);
+    this.logger.data('afterContentChecked');
   }
 
   ngAfterViewChecked(): void {
-    console.log(`${this.componentName} afterViewChecked`);
+    this.logger.data('afterViewChecked');
   }
 
   ngAfterViewInit(): void {
-    console.log(`${this.componentName} afterViewInit`);
+    this.logger.data('afterViewInit');
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(`${this.componentName} onChanges: `, changes);
+    this.logger.data('onChanges: ', changes);
   }
 
   ngDoCheck(): void {
-    console.log(`${this.componentName} doCheck`);
+    this.logger.data('doCheck');
   }
 
   ngOnInit() {
-    console.log(`${this.componentName} onInit, testData: `, this.testData);
+    this.logger.data('onInit, testData: ', this.testData);
   }
 
   ngOnDestroy(): void {
-    console.log(`${this.componentName} onDestroy`);
+    this.logger.data('onDestroy');
   }
 }
