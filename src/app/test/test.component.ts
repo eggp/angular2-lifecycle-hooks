@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -6,7 +6,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./test.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class TestComponent implements OnInit {
+export class TestComponent implements OnInit, OnDestroy {
   componentName = 'Test';
   @Input() testData;
 
@@ -18,4 +18,7 @@ export class TestComponent implements OnInit {
     console.log(`${this.componentName} onInit, testData: `, this.testData);
   }
 
+  ngOnDestroy(): void {
+    console.log(`${this.componentName} onDestroy`);
+  }
 }
