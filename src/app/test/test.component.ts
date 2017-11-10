@@ -1,4 +1,13 @@
-import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -6,12 +15,20 @@ import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular
   styleUrls: ['./test.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class TestComponent implements OnInit, OnDestroy {
+export class TestComponent implements OnInit, OnDestroy, DoCheck, OnChanges {
   componentName = 'Test';
   @Input() testData;
 
   constructor() {
     console.log('constructor, testData: ', this.testData);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(`${this.componentName} onChanges: `, changes);
+  }
+
+  ngDoCheck(): void {
+    console.log(`${this.componentName} doCheck`);
   }
 
   ngOnInit() {

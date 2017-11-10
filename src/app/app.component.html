@@ -1,3 +1,4 @@
 <button (click)="visibleButton = !visibleButton">{{visibleButton?'remove component':'add component'}}</button>
-<app-test *ngIf="visibleButton" [testData]="'test string'"></app-test>
+<button (click)="changeInputTestData()">new test data</button>
+<app-test *ngIf="visibleButton" [testData]="testData"></app-test>
 
