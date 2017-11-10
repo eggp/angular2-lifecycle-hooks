@@ -13,13 +13,13 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
+  selector: 'app-test2',
+  templateUrl: './test2.component.html',
+  styleUrls: ['./test2.component.css']
 })
-export class TestComponent implements OnInit, OnDestroy, DoCheck, OnChanges, AfterViewInit,
+export class Test2Component implements OnInit, OnDestroy, DoCheck, OnChanges, AfterViewInit,
   AfterViewChecked, AfterContentInit, AfterContentChecked {
-  componentName = 'Test';
+  componentName = 'Test2';
   @Input() testData;
   @Input() notModified;
 
