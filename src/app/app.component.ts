@@ -7,11 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   visibleButton = true;
-  // testData: string = 'haUgyanazAkkorNemValtozik';
+  notModified: string = 'haUgyanazAkkorNemValtozik';
   testData: string = new Date().toTimeString();
 
   changeInputTestData() {
-    // this.testData = 'haUgyanazAkkorNemValtozik';
     this.testData = new Date().toTimeString();
+  }
+
+  changeInputNotModified() {
+    this.notModified = 'haUgyanazAkkorNemValtozik';
   }
 }

@@ -1,4 +1,6 @@
 import {
+  AfterViewChecked,
+  AfterViewInit,
   Component,
   DoCheck,
   Input,
@@ -15,12 +17,21 @@ import {
   styleUrls: ['./test.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class TestComponent implements OnInit, OnDestroy, DoCheck, OnChanges {
+export class TestComponent implements OnInit, OnDestroy, DoCheck, OnChanges, AfterViewInit, AfterViewChecked {
   componentName = 'Test';
   @Input() testData;
+  @Input() notModified;
 
   constructor() {
     console.log('constructor, testData: ', this.testData);
+  }
+
+  ngAfterViewChecked(): void {
+    console.log(`${this.componentName} afterViewChecked`);
+  }
+
+  ngAfterViewInit(): void {
+    console.log(`${this.componentName} afterViewInit`);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
